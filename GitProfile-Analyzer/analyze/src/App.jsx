@@ -43,7 +43,7 @@ const App = () => {
           `https://api.github.com/repos/${username}/${selectedRepo}/languages`,
           {
             headers: {
-              Authorization: `token ${process.env.token}`,
+              Authorization: `token ${process.env.VITE_GITHUB_TOKEN}`,
             },
           }
         );
@@ -65,7 +65,7 @@ const App = () => {
     try{
       const res = await fetch(`https://api.github.com/users/${username}/repos`, {
         headers: {
-          Authorization: `token ${process.env.token}`
+          Authorization: `token ${process.env.VITE_GITHUB_TOKEN}`
         }
       });
       const data = await res?.json() ||[];
@@ -99,7 +99,7 @@ const App = () => {
       `https://api.github.com/repos/${username}/${repo}/commits?per_page=100`,
       {
         headers: {
-          Authorization: `token ${process.env.token}`
+          Authorization: `token ${process.env.VITE_GITHUB_TOKEN}`
         }
       }
     );
@@ -135,7 +135,7 @@ const App = () => {
     try {
       const res = await fetch(`https://api.github.com/users/${username}/repos`,{
         headers: {
-          Authorization: `token ${process.env.token}`
+          Authorization: `token ${process.env.VITE_GITHUB_TOKEN}`
         }
       });
       const data = await res.json();
